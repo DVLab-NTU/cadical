@@ -28,6 +28,8 @@ add_library(cadical STATIC ${SOURCES})
 add_library(cadical::cadical ALIAS cadical)
 # don't generate the build header file when building the library
 target_compile_definitions(cadical PRIVATE NBUILD=1)
+# don't print anything to stdout
+target_compile_definitions(cadical PRIVATE QUIET=1)
 
 target_include_directories(
   cadical INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
